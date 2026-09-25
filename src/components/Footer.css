@@ -1,0 +1,15 @@
+.footer {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 16px;
+  background: linear-gradient(180deg, #081521, #050f18);
+  border-top: 1px solid var(--border-strong);
+  font-size: 10px;
+  color: var(--text-faint);
+}
+.foot-left { display: flex; align-items: center; gap: 7px; }
+.foot-left .ic { color: var(--text-dim); display: flex; }
+.foot-left .date { font-family: var(--mono); }
+.foot-left .status { display: flex; align-items: center; gap: 5px; margin-left: 10px; color: var(--text-dim); }
+.foot-left .status .dot.g { width: 6px; height: 6px; }
+.foot-right { letter-spacing: 0.3px; }
+.foot-right .accent { color: var(--accent); }
