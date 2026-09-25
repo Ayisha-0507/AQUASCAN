@@ -1,10 +1,25 @@
+import { useState } from 'react'
 import { activeObject } from '../data'
 import './RightPanel.css'
 
 export default function RightPanel() {
   const o = activeObject
+  const [feedback, setFeedback] = useState('No operator action taken yet.')
   return (
     <aside className="right">
+      <section className="card r-card">
+        <div className="hdr">Mission Workflow</div>
+        <div className="workflow">
+          <span className="wf done">AUV Scan</span>
+          <span className="wf done">AI Detection</span>
+          <span className="wf active">Risk Assessment</span>
+          <span className="wf">Recommended Action</span>
+        </div>
+        <button className="cta-main" onClick={() => setFeedback(`Investigation opened for ${o.id}.`)}>
+          Open {o.id} Investigation
+        </button>
+      </section>
+
       {/* Object Analysis */}
       <section className="card r-card">
         <div className="hdr">Object Analysis ({o.id})</div>
@@ -28,7 +43,7 @@ export default function RightPanel() {
       <section className="card r-card">
         <div>
           <div className="hdr">Impact & Benefits</div>
-          <div className="sub">referencing previous slides</div>
+          <div className="sub">Outcome summary generated from current mission evidence</div>
         </div>
         {o.impact.map((row, i) => (
           <div key={i} className="impact-row">
@@ -44,6 +59,27 @@ export default function RightPanel() {
       </section>
 
       {/* Data Sources */}
+      <section className="card r-card">
+        <div className="hdr">Evidence & Verification</div>
+        <div className="ev-grid">
+          <div className="ev-card">
+            <span className="ev-k">Detection Window</span>
+            <span className="ev-v">Frame 224 · Side Scan Sonar</span>
+          </div>
+          <div className="ev-card">
+            <span className="ev-k">Human Verification</span>
+            <span className="ev-v amber">Pending Operator Review</span>
+          </div>
+        </div>
+        <div className="btn-grid">
+          <button className="act-btn" onClick={() => setFeedback('Detection sent for human verification.')}>Verify Detection</button>
+          <button className="act-btn" onClick={() => setFeedback('Recovery mission assignment queued.')}>Assign Recovery Mission</button>
+          <button className="act-btn warn" onClick={() => setFeedback('Detection marked as potential false positive.')}>Mark False Positive</button>
+          <button className="act-btn" onClick={() => setFeedback('Mission report export generated (UI preview).')}>Export Report</button>
+        </div>
+        <div className="feedback">{feedback}</div>
+      </section>
+
       <section className="card r-card">
         <div className="hdr">Data Sources</div>
         {o.sources.map(s => (

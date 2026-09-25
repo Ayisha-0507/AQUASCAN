@@ -30,7 +30,7 @@ export const inventory = [
   { label: 'TOTAL DETECTED', value: '2,450', color: 'var(--accent)' },
   { label: 'HIGH RISK HAZARDS', value: '120', color: 'var(--red)' },
   { label: 'GHOST GEAR TARGETS', value: '850', color: 'var(--amber)' },
-  { label: 'FALSE POSITIVES', value: '350', color: 'var(--text-dim)' },
+  { label: 'FALSE POSITIVES (MISSION EST.)', value: '350', color: 'var(--text-dim)' },
 ]
 
 export const activeObject = {
@@ -44,14 +44,14 @@ export const activeObject = {
   ],
   impact: [
     { icon: 'ok', text: 'Environmental: Ghost Gear Recovery', color: 'green' },
-    { icon: 'warn', text: 'Economic: Vessel Propeller Hazard prevented.', color: 'amber' },
+    { icon: 'warn', text: 'Economic: Vessel propeller damage prevented.', color: 'amber' },
   ],
   sources: [
-    { k: 'AUV Source', v: 'AUV01' },
-    { k: 'Timestamp', v: '2026-09-25 00:28:14Z' },
+    { k: 'Source AUV', v: 'AUV01' },
+    { k: 'Timestamp (UTC)', v: '2026-09-25 00:28:14 UTC' },
     { k: 'Lat / Lon', v: '15.350° N · 73.420° E' },
     { k: 'Depth', v: '42.6 m' },
   ],
-  verified: 'VERIFIED METSOURCES (INCOIS Data Stream)',
+  verified: 'Verified with INCOIS met-ocean data stream',
   estHeight: '0.61 m',
 }

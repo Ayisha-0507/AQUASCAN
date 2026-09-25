@@ -45,7 +45,7 @@ export default function LeftSidebar() {
         </div>
         <div className="edge-row">
           <span className="lbl">YOLOv8 Inference Speed</span>
-          <span className="edge-big c">0.1<small>s/km</small></span>
+          <span className="edge-big c">100<small>ms/frame · 10 FPS</small></span>
           <div className="bar"><span style={{ width: '88%', background: 'var(--accent)', boxShadow: '0 0 6px var(--accent-glow)' }} /></div>
         </div>
         <div className="edge-row">
@@ -57,10 +57,11 @@ export default function LeftSidebar() {
 
       {/* INCOIS */}
       <section className="card sb-card">
-        <div className="hdr">INCOIS Current API Status</div>
+        <div className="hdr">INCOIS Drift Service Status</div>
         <div className="incos-pill">
-          <span className="pulse" /> LIVE DRIFT PREDICTIONS
+          <span className="pulse" /> Live Drift Predictions
         </div>
+        <div className="sub">Data Freshness: 2 min · Connection: Stable</div>
       </section>
     </aside>
   )

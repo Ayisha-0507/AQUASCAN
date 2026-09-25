@@ -10,6 +10,37 @@
   gap: 7px;
   flex: none;
 }
+.workflow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.wf {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 3px 8px;
+  font-size: 9px;
+  color: var(--text-dim);
+}
+.wf.done {
+  color: var(--green);
+  border-color: rgba(62,220,129,0.25);
+}
+.wf.active {
+  color: var(--amber);
+  border-color: rgba(255,177,61,0.3);
+}
+.cta-main {
+  background: rgba(77,212,232,0.14);
+  border: 1px solid var(--border-strong);
+  color: var(--accent);
+  border-radius: 5px;
+  padding: 8px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.cta-main:hover { background: rgba(77,212,232,0.22); }
 
 .split { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
 .mini {
@@ -47,4 +78,59 @@
   border: 1px solid rgba(62,220,129,0.2);
   border-radius: 4px;
   text-align: center;
+}
+.ev-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+.ev-card {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.04);
+  border-radius: 5px;
+  padding: 7px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.ev-k { color: var(--text-faint); font-size: 9px; text-transform: uppercase; letter-spacing: 0.5px; }
+.ev-v { color: var(--text); font-size: 10px; }
+.ev-v.amber { color: var(--amber); }
+.btn-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+.act-btn {
+  border: 1px solid var(--border);
+  background: rgba(77,212,232,0.08);
+  color: var(--text);
+  border-radius: 4px;
+  padding: 6px;
+  font-size: 10px;
+  cursor: pointer;
+}
+.act-btn.warn {
+  border-color: rgba(255,177,61,0.35);
+  color: var(--amber);
+}
+.act-btn:hover { background: rgba(77,212,232,0.15); }
+.feedback {
+  font-size: 9px;
+  color: var(--accent);
+  background: rgba(77,212,232,0.08);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 5px 7px;
+}
+.cta-main:focus-visible,
+.act-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+@media (max-width: 900px) {
+  .split,
+  .ev-grid,
+  .btn-grid { grid-template-columns: 1fr; }
 }
