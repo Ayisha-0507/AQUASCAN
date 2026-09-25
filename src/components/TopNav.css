@@ -5,6 +5,7 @@
   background: linear-gradient(180deg, #0c1d2e, #081521);
   border-bottom: 1px solid var(--border-strong);
   gap: 16px;
+  min-width: 0;
 }
 .nav-logo {
   display: flex; align-items: center; gap: 9px;
@@ -25,14 +26,19 @@
 .nav-tabs {
   display: flex; gap: 2px;
   margin-left: auto; margin-right: auto;
+  min-width: 0;
+  overflow-x: auto;
+  scrollbar-width: thin;
 }
 .nav-tabs button {
   background: none; border: none; cursor: pointer;
   color: var(--text-dim);
   font-size: 11px; font-weight: 600; letter-spacing: 1px;
-  padding: 6px 14px; border-radius: 5px;
+  padding: 6px 11px; border-radius: 5px;
   font-family: var(--sans);
   transition: all 0.2s;
+  white-space: nowrap;
+  flex: none;
 }
 .nav-tabs button:hover { color: var(--text); background: rgba(77,212,232,0.06); }
 .nav-tabs button.active {
@@ -67,3 +73,18 @@
 }
 .divider-v { width: 1px; height: 24px; background: var(--border); }
 .nav-time { font-family: var(--mono); font-size: 11px; color: var(--text-dim); white-space: nowrap; }
+
+@media (max-width: 1024px) {
+  .nav {
+    gap: 10px;
+    padding: 0 10px;
+  }
+
+  .nav-logo {
+    font-size: 11px;
+  }
+
+  .nav-right {
+    display: none;
+  }
+}

@@ -2,7 +2,8 @@
   display: flex; flex-direction: column;
   gap: 8px;
   min-height: 0;
-  overflow: hidden;
+  overflow-y: auto;
+  padding-right: 1px;
 }
 .sb-card {
   display: flex; flex-direction: column;
@@ -11,6 +12,52 @@
 }
 .sb-card.grow { flex: 1; min-height: 0; }
 .sb-card .card-scroll { flex: 1; min-height: 0; }
+
+.upload-card {
+  border-color: var(--border-strong);
+}
+
+.upload-zone {
+  display: grid;
+  gap: 8px;
+  border: 1px dashed var(--border-strong);
+  border-radius: 6px;
+  padding: 10px;
+  background: rgba(77,212,232,0.04);
+}
+
+.upload-copy {
+  font-size: 10px;
+  color: var(--text-dim);
+}
+
+.upload-zone input {
+  display: none;
+}
+
+.upload-btn {
+  border-radius: 5px;
+  border: 1px solid var(--border-strong);
+  padding: 7px 8px;
+  text-align: center;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.upload-btn.ghost-btn {
+  color: var(--accent);
+  background: rgba(77,212,232,0.08);
+}
+
+.upload-btn.run-btn {
+  color: #02131c;
+  background: linear-gradient(90deg, #4dd4e8, #3edc81);
+  border-color: transparent;
+  font-weight: 700;
+}
 
 /* AUV fleet */
 .auv-row {

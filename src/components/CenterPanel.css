@@ -52,6 +52,63 @@
   display: flex; flex-direction: column; gap: 4px;
 }
 
+.map-upload {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  z-index: 500;
+  width: min(280px, calc(100% - 60px));
+  padding: 9px;
+  border-radius: 6px;
+  border: 1px solid var(--border-strong);
+  background: rgba(10,25,40,0.86);
+  display: grid;
+  gap: 6px;
+  backdrop-filter: blur(4px);
+}
+
+.map-upload .title {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.map-upload .copy {
+  font-size: 9px;
+  color: var(--text-dim);
+}
+
+.map-upload input {
+  display: none;
+}
+
+.map-upload label,
+.map-upload button {
+  border: 1px solid var(--border-strong);
+  border-radius: 4px;
+  padding: 6px 8px;
+  font-size: 9px;
+  font-family: var(--mono);
+  text-transform: uppercase;
+  text-align: center;
+  cursor: pointer;
+  letter-spacing: 0.4px;
+}
+
+.map-upload label {
+  color: var(--accent);
+  background: rgba(77,212,232,0.08);
+}
+
+.map-upload button {
+  color: #02131c;
+  background: linear-gradient(90deg, #4dd4e8, #3edc81);
+  border-color: transparent;
+  font-weight: 700;
+}
+
 /* inventory bar */
 .inv-bar {
   display: grid;
@@ -66,6 +123,16 @@
 .inv-stat + .inv-stat { border-left: 1px solid var(--border); }
 .inv-stat .v { font-family: var(--mono); font-size: 20px; font-weight: 700; line-height: 1.1; }
 .inv-stat .l { font-size: 8.5px; font-weight: 600; letter-spacing: 0.7px; color: var(--text-faint); text-transform: uppercase; }
+
+@media (max-width: 1024px) {
+  .map-card {
+    min-height: 360px;
+  }
+
+  .inv-bar {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
 
 /* leaflet dark overrides */
 .leaflet-container { background: #061320 !important; }

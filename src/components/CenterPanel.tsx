@@ -77,6 +77,14 @@ export default function CenterPanel() {
         <div className="map-fs">
           <div className="mc"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d={icons.fs} /></svg></div>
         </div>
+
+        <div className="map-upload">
+          <div className="title">Sonar Input</div>
+          <div className="copy">No live image stream. Upload sonar frame to continue mission analysis.</div>
+          <label htmlFor="sonar-upload-map">Choose File</label>
+          <input id="sonar-upload-map" type="file" accept="image/png,image/jpeg,image/jpg" />
+          <button type="button">Run AI Scan</button>
+        </div>
       </div>
 
       <div className="card inv-bar">
