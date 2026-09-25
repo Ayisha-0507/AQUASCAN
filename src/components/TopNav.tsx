@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './TopNav.css'
 
-const tabs = ['DASHBOARD', 'SURVEY ANALYTICS', 'AUV FLEET', 'DATA REPOSITORY', 'HISTORY']
+const tabs = ['DASHBOARD', 'ANALYTICS', 'AUV FLEET', 'REPOSITORY', 'HISTORY']
 
 export default function TopNav() {
   const [active, setActive] = useState(0)

@@ -2,7 +2,8 @@
   display: flex; flex-direction: column;
   gap: 7px;
   min-height: 0;
-  overflow: hidden;
+  overflow-y: auto;
+  padding-right: 1px;
 }
 .r-card {
   display: flex; flex-direction: column;
@@ -47,4 +48,10 @@
   border: 1px solid rgba(62,220,129,0.2);
   border-radius: 4px;
   text-align: center;
+}
+
+@media (max-width: 1024px) {
+  .split {
+    grid-template-columns: 1fr;
+  }
 }

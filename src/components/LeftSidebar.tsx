@@ -4,8 +4,19 @@ import './LeftSidebar.css'
 export default function LeftSidebar() {
   return (
     <aside className="sidebar">
+      <section className="card sb-card upload-card">
+        <div className="hdr">Mission Upload Queue</div>
+        <div className="sub">Upload → Scan → Detect → Verify → Act</div>
+        <div className="upload-zone">
+          <div className="upload-copy">Drop sonar image here or choose a file to start scan.</div>
+          <label className="upload-btn ghost-btn" htmlFor="sonar-upload-left">Choose File</label>
+          <input id="sonar-upload-left" type="file" accept="image/png,image/jpeg,image/jpg" />
+          <button className="upload-btn run-btn" type="button">Run AI Scan</button>
+        </div>
+      </section>
+
       {/* AUV Fleet Status */}
-      <section className="card sb-card">
+      <section className="card sb-card grow">
         <div>
           <div className="hdr">AUV Fleet Status</div>
           <div className="sub">AUVs with real-time telemetry</div>

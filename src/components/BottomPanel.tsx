@@ -13,14 +13,12 @@ export default function BottomPanel() {
       <div className="card bp">
         <div className="ph">Raw Sonar Image</div>
         <div className="viz">
-          <div className="sonar">
-            <div className="sonar-grid" />
-            <div className="sonar-scan" />
-            <div className="sonar-echo" style={{ width: 38, height: 38, left: '52%', top: '40%' }} />
-            <div className="sonar-echo" style={{ width: 22, height: 22, left: '30%', top: '55%', background: 'radial-gradient(circle, rgba(255,92,92,0.6), transparent 70%)' }} />
-            <div className="sonar-echo" style={{ width: 16, height: 16, left: '70%', top: '62%' }} />
-            <div className="sonar-axis x">Cross-track (m)</div>
-            <div className="sonar-axis y">Along-track (m)</div>
+          <div className="upload-empty">
+            <div className="empty-hdr">No Sonar Image Uploaded</div>
+            <div className="empty-sub">Choose a sonar image to begin scan and evidence generation.</div>
+            <label htmlFor="sonar-upload-bottom">Choose File</label>
+            <input id="sonar-upload-bottom" type="file" accept="image/png,image/jpeg,image/jpg" />
+            <button type="button">Run AI Scan</button>
           </div>
         </div>
       </div>
