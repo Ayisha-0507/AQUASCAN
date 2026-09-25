@@ -1,4 +1,4 @@
-import { MapContainer, TileLayer, Polyline, CircleMarker, Popup, useMap } from 'react-leaflet'
+import { MapContainer, Polyline, CircleMarker, Popup, Polygon, useMap } from 'react-leaflet'
 import L from 'leaflet'
 import { useEffect } from 'react'
 import { demoPins, surveyPath, inventory } from '../data'
@@ -29,13 +29,27 @@ const icons = {
 }
 
 export default function CenterPanel() {
+  const lats = surveyPath.map(([lat]) => lat)
+  const lngs = surveyPath.map(([, lng]) => lng)
+  const boundary: [number, number][] = [
+    [Math.min(...lats) - 0.18, Math.min(...lngs) - 0.18],
+    [Math.min(...lats) - 0.18, Math.max(...lngs) + 0.18],
+    [Math.max(...lats) + 0.18, Math.max(...lngs) + 0.18],
+    [Math.max(...lats) + 0.18, Math.min(...lngs) - 0.18],
+  ]
+
   return (
     <main className="center">
       <div className="card map-card">
+        <div className="map-meta">
+          <span className="badge sim"><span className="dot a" /> Simulation Mode</span>
+          <span className="mono">Survey Boundary: Goa West Grid</span>
+        </div>
         <div className="map-wrap">
           <MapContainer center={[15.4, 73.5]} zoom={9} zoomControl={false} attributionControl={false} style={{ height: '100%', width: '100%' }}>
-            <TileLayer
-              url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
+            <Polygon
+              positions={boundary}
+              pathOptions={{ color: '#4dd4e8', weight: 1, opacity: 0.35, dashArray: '6 6', fillOpacity: 0.06, fillColor: '#4dd4e8' }}
             />
             <Polyline positions={surveyPath} pathOptions={{ color: '#4dd4e8', weight: 1.5, opacity: 0.6, dashArray: '5 6' }} />
             {demoPins.map((p, i) => (
@@ -57,25 +71,34 @@ export default function CenterPanel() {
                 )}
               </CircleMarker>
             ))}
+            <CircleMarker
+              center={[demoPins[0].lat, demoPins[0].lng]}
+              radius={13}
+              pathOptions={{ color: '#ff5c5c', opacity: 0.5, fillOpacity: 0, weight: 1.5, dashArray: '3 5' }}
+            />
             <FitBounds />
           </MapContainer>
+          <div className="sim-grid" aria-hidden />
+          <div className="coord-chip mono">Center 15.40°N · 73.50°E</div>
         </div>
 
         <div className="map-controls">
           {['plus', 'minus', 'locate', 'layers', 'settings'].map(n => (
-            <div key={n} className="mc">
+            <button key={n} className="mc" disabled title={`${n} disabled in simulation mode`} aria-label={`${n} control disabled in simulation mode`}>
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d={icons[n as keyof typeof icons]} /></svg>
-            </div>
+            </button>
           ))}
         </div>
 
         <div className="legend">
+          <div className="row"><span className="line route" /> Survey Route</div>
+          <div className="row"><span className="line boundary" /> Survey Boundary</div>
           <div className="row"><span className="dot r" /> High Risk</div>
-          <div className="row"><span className="dot a" /> Potential Debris</div>
+          <div className="row"><span className="dot a" /> Review Required</div>
         </div>
 
         <div className="map-fs">
-          <div className="mc"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d={icons.fs} /></svg></div>
+          <button className="mc" disabled title="Fullscreen disabled in simulation mode" aria-label="fullscreen control disabled in simulation mode"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d={icons.fs} /></svg></button>
         </div>
       </div>
 

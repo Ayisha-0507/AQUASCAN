@@ -35,6 +35,11 @@
   transition: all 0.2s;
 }
 .nav-tabs button:hover { color: var(--text); background: rgba(77,212,232,0.06); }
+.nav-tabs button:disabled {
+  color: var(--text-faint);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
 .nav-tabs button.active {
   color: var(--accent);
   background: rgba(77,212,232,0.12);
@@ -42,6 +47,14 @@
 }
 
 .nav-right { display: flex; align-items: center; gap: 12px; }
+.nav-state { display: flex; gap: 5px; }
+.nav-state .badge {
+  border: 1px solid var(--border);
+  background: rgba(10,25,40,0.8);
+}
+.nav-state .badge.sim { color: var(--amber); border-color: rgba(255,177,61,0.25); }
+.nav-state .badge.live { color: var(--green); border-color: rgba(62,220,129,0.25); }
+.nav-state .badge.info { color: var(--accent); border-color: var(--border-strong); }
 .nav-icons { display: flex; align-items: center; gap: 10px; color: var(--text-dim); }
 .nav-icons .ic {
   width: 26px; height: 26px; border-radius: 50%;
@@ -67,3 +80,9 @@
 }
 .divider-v { width: 1px; height: 24px; background: var(--border); }
 .nav-time { font-family: var(--mono); font-size: 11px; color: var(--text-dim); white-space: nowrap; }
+
+@media (max-width: 1200px) {
+  .nav { flex-wrap: wrap; height: auto; padding: 8px 12px; gap: 10px; }
+  .nav-tabs { order: 3; width: 100%; justify-content: flex-start; margin: 0; overflow-x: auto; }
+  .nav-right { margin-left: auto; }
+}

@@ -74,6 +74,9 @@ export default function BottomPanel() {
               <text x="93" y="68" fill="var(--text-faint)" fontSize="7" fontFamily="var(--mono)">θ</text>
             </svg>
             <div className="geo-box">Estimated Height: {activeObject.estHeight}</div>
+            <div className="geo-legend" title="H = object height, R = slant range, Ls = acoustic shadow length">
+              H: Height · R: Slant Range · Ls: Shadow Length
+            </div>
           </div>
         </div>
       </div>
@@ -108,6 +111,7 @@ export default function BottomPanel() {
             </svg>
             <div className="drift-label t0">T+0h</div>
             <div className="drift-label t48">T+48h</div>
+            <div className="drift-legend">Dashed line: projected path · shaded area: uncertainty zone</div>
           </div>
         </div>
       </div>
