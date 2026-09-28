@@ -1,8 +1,0 @@
-.mid {
-  display: grid;
-  grid-template-columns: 18% 54% 28%;
-  gap: 8px;
-  padding: 8px;
-  overflow: hidden;
-  min-height: 0;
-}
