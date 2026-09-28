@@ -39,6 +39,7 @@ declare global {
   }
 }
 
+
 const API_BASE_URL = import.meta.env.VITE_API_URL || "https://aquascan-backend.onrender.com";
 
 export async function uploadAndDetectSonar(file: File, model = "both"): Promise<ApiResponse> {
