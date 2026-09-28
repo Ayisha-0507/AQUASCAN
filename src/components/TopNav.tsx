@@ -5,6 +5,7 @@ export const tabs = ['DASHBOARD', 'SURVEY ANALYTICS', 'AUV FLEET', 'DATA REPOSIT
 
 interface TopNavProps {
   activeTab: number;
+  
   onTabChange: (tab: number) => void;
 }
 
